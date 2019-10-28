@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import logo from './logo.svg';
-import FavoriteList from './favoriteList'
+import FavoriteList from './favoriteList.js'
+
 
 /*
 Use React and the data below to display a list of users alongside their favorite movies.
@@ -9,7 +10,7 @@ Use React and the data below to display a list of users alongside their favorite
 For detailed instructions, refer to instructions.md.
 */
 
-const profiles = [
+const profilesArray = [
   {
     id: 1,
     userID: '1',
@@ -42,40 +43,40 @@ const profiles = [
   },
 ];
 
-const users = {
-  1: {
+const usersArray  = [
+   {
     id: 1,
     name: 'Jane Cruz',
     userName: 'coder',
   },
-  2: {
+  {
     id: 2,
     name: 'Matthew Johnson',
     userName: 'mpage',
   },
-  3: {
+  {
     id: 3,
     name: 'Autumn Green',
     userName: 'user123',
   },
-  4: {
+  {
     id: 4,
     name: 'John Doe',
     userName: 'user123',
   },
-  5: {
+  {
     id: 5,
     name: 'Lauren Carlson',
     userName: 'user123',
   },
-  6: {
+  {
     id: 6,
     name: 'Nicholas Lain',
     userName: 'user123',
   },
-};
+];
 
-const movies = {
+const moviesArray  = {
   1: {
     id: 1,
     name: 'Planet Earth 1',
@@ -100,19 +101,23 @@ const movies = {
 
 class App extends Component {
   render() {
+    console.log('props', this.props)
     return (
       <div>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
-        <h2>Favorite Movies</h2>
+
 		<div>
-			<FavoriteList profilesObject = {profiles} />
+			<FavoriteList profilesObject = {profilesArray} usersObject = {usersArray} noviesobject = {moviesArray}/>
 		</div>
+
       </div>
     );
   }
 }
+
+          
 
 export default App;

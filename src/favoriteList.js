@@ -4,16 +4,12 @@ class FavoriteList extends Component {
 	render() {
       console.log('Props', this.props)
       return (
-      	<ul>
-		   	{this.props.profilesObject.map((profile) => (
-        		<li key={profile.id}>
-        			{profile.id}
-        		</li>
-      		))}
+ 
 
-        </ul>
+        <p>{this.props.usersObject[0].name}</p>
+
       )
     }
 }
 
-export default FavoriteList
+export default FavoriteList 
