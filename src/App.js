@@ -43,38 +43,38 @@ const profilesArray = [
   },
 ];
 
-const usersArray  = [
-   {
+const usersArray  = {
+  1: {
     id: 1,
     name: 'Jane Cruz',
     userName: 'coder',
   },
-  {
+  2: {
     id: 2,
     name: 'Matthew Johnson',
     userName: 'mpage',
   },
-  {
+  3: {
     id: 3,
     name: 'Autumn Green',
     userName: 'user123',
   },
-  {
+  4: {
     id: 4,
     name: 'John Doe',
     userName: 'user123',
   },
-  {
+  5: {
     id: 5,
     name: 'Lauren Carlson',
     userName: 'user123',
   },
-  {
+  6: {
     id: 6,
     name: 'Nicholas Lain',
     userName: 'user123',
   },
-];
+};
 
 const moviesArray  = {
   1: {
@@ -99,6 +99,18 @@ const moviesArray  = {
   },
 };
 
+let favFilmNamesArray = profilesArray.map(profile => {
+  	let name = usersArray[profile.userID].name
+    let film = moviesArray[profile.favoriteMovieID].name
+  
+ 	return (
+      [name, film]
+    )
+})
+
+
+
+
 class App extends Component {
   render() {
     console.log('props', this.props)
@@ -110,7 +122,8 @@ class App extends Component {
         </header>
 
 		<div>
-			<FavoriteList profilesObject = {profilesArray} usersObject = {usersArray} noviesobject = {moviesArray}/>
+			<h2>Favorite Films</h2>      
+				<FavoriteList profilesObject = {profilesArray} favNameFilmObject = {favFilmNamesArray}/>
 		</div>
 
       </div>
